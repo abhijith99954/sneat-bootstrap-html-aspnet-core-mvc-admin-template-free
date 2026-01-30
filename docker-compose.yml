@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # web:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+    # If IMAGE_NAME is set (e.g., ghcr.io/org/repo:tag), the built image will be tagged with that name
+    image: ${IMAGE_NAME:-aspnetcoremvcfull:local}
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

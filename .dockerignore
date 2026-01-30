@@ -1,0 +1,16 @@
+# Ignore build output and local files
+bin/
+obj/
+**/bin/
+**/obj/
+publish/
+.git/
+.vs/
+.vscode/
+node_modules/
+npm-debug.log
+*.log
+*.md
+*.suo
+*.user
+*.csproj.user
